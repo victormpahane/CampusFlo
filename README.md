@@ -1,12 +1,30 @@
-# CampusFlow
+# CampusFlo
 
-Keep your student life in flow.
+CampusFlo is a student-only academic companion for tertiary students in Roma, Lesotho. It supports Android, iOS, and web, and helps students manage modules, timetables, labs, practicals, tests, assignments, academic tasks, events, notes, reminders, weekly summaries, and AI-assisted academic guidance.
 
-CampusFlow is a student-only Android, iOS, and web academic companion for tertiary students in Roma, Lesotho. It helps students manage modules, timetables, labs, tests, assignments, events, notes, reminders, weekly summaries, and AI-powered academic guidance. It is designed using Expo React Native and TypeScript, with a structure that can later scale across faculties, departments, programmes, institutions, and campuses.
+## Product Direction
+
+CampusFlo is the project name and platform identity.
+
+The product goal is a Roma-focused student companion that helps a student answer:
+
+- What classes do I have today?
+- What labs or practicals do I have?
+- What assignments or tests are due soon?
+- What should I prioritize this week?
+- Am I overloaded right now?
+- What should I focus on first?
+
+The MVP is student-only:
+
+- No lecturers
+- No admins
+- No class reps
+- No public event organizers
 
 ## Current Foundation
 
-This repository currently contains product and engineering foundation documents derived from the locked project direction:
+This repository contains the planning and engineering foundation for the app:
 
 - `docs/requirements.md`
 - `docs/architecture.md`
@@ -15,27 +33,25 @@ This repository currently contains product and engineering foundation documents 
 - `docs/testing.md`
 - `docs/codex-prompts.md`
 
-## MVP Focus
+## MVP Scope
 
-The MVP centers on a single user role:
+Version 1 should include:
 
-- Student
-
-Core MVP areas:
-
-- Student profile
+- Student registration and login
+- Student profile setup
 - Modules
 - Timetable
-- Labs/practicals as timetable entries and academic tasks
-- Academic tasks
-- Events
+- Labs and practicals as timetable entries and academic tasks
+- Timetable clash detection
+- Academic tasks including tests, assignments, exams, and lab reports
+- Events tracker
 - Notes
-- Weekly summary
 - Priority engine
+- Weekly academic summary
 - Basic AI communicator
-- Notifications
-- Offline support
-- Security and robustness baseline
+- Local notifications
+- Offline viewing and offline creation for key items
+- Basic security and robust error handling
 
 ## Recommended Stack
 
@@ -44,12 +60,12 @@ Core MVP areas:
 - Expo Router
 - Supabase
 - PostgreSQL
-- Expo SQLite or AsyncStorage for offline data
+- Expo SQLite for offline-first storage
 
-## Next Build Steps
+## Build Sequence
 
-1. Scaffold the Expo TypeScript app with Expo Router.
-2. Implement the UI shell with mock data.
-3. Add shared types, validation, and defensive utilities.
-4. Implement clash detection, priority scoring, and weekly summary logic.
-5. Add Supabase auth and row-level security later.
+1. Scaffold the Expo Router app shell with mock data and modern student-friendly UI.
+2. Add shared types, validation, error handling, and defensive rendering.
+3. Implement timetable clash detection, priority scoring, and weekly summary logic.
+4. Add offline storage and sync queue foundations.
+5. Add Supabase authentication, database integration, and Row Level Security.

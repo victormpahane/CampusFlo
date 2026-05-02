@@ -7,7 +7,7 @@
 - Expo Router
 - Supabase
 - PostgreSQL
-- Local offline storage using Expo SQLite or AsyncStorage
+- Local offline storage using Expo SQLite, with AsyncStorage only as a lighter MVP fallback
 
 ## High-Level Architecture
 
@@ -42,26 +42,60 @@ AI Communicator Logic
         |---- Note-to-task Suggestions
 ```
 
+## Design Principles
+
+- Student-only first: every flow is built around a single student managing their own academic life
+- Offline-first mindset: core academic flows must remain usable without internet
+- Scalable data model: use flexible text fields now, but leave a clean path to normalized academic structures later
+- Rule-based intelligence first: AI suggestions should start with deterministic app logic based on student data
+- Security by default: authentication, scoped data access, and safe local storage are part of the base architecture
+
 ## Scalability Direction
 
-The MVP is student-only, but the data model and app structure must not block later support for:
+The MVP is generalized for tertiary students in Roma, but the structure must not block future support for:
 
 - Institutions
 - Faculties
 - Departments
 - Programmes
 - Campuses
+- Different academic years
 - Different semester models
 
-Use flexible fields in the MVP, with a path to normalized reference tables later.
+Recommended long-term academic hierarchy:
+
+```text
+Institution
+    Faculty
+        Department
+            Programme
+                Year of Study
+                    Semester
+                        Modules
+```
 
 ## Suggested Folder Structure
 
 ```text
-campusflow/
+campusflo/
 ├── app/
 ├── components/
+│   ├── ui/
+│   ├── cards/
+│   ├── forms/
+│   ├── layout/
+│   └── feedback/
 ├── features/
+│   ├── auth/
+│   ├── profile/
+│   ├── modules/
+│   ├── timetable/
+│   ├── tasks/
+│   ├── events/
+│   ├── notes/
+│   ├── ai-communicator/
+│   ├── notifications/
+│   └── offline-sync/
 ├── lib/
 ├── types/
 ├── constants/

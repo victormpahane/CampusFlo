@@ -2,9 +2,11 @@
 
 ## Product Vision
 
-CampusFlow is a student-only Android, iOS, and web academic companion for tertiary students in Roma, Lesotho. It helps students manage modules, timetables, labs, tests, assignments, events, notes, reminders, weekly summaries, and AI-powered academic guidance.
+CampusFlo is a student-only Android, iOS, and web academic companion for tertiary students in Roma, Lesotho. It helps a student manage modules, timetables, labs, practicals, tests, assignments, academic tasks, events, notes, reminders, weekly summaries, and AI-assisted academic planning in one reliable place.
 
-It should help a student answer:
+The experience should feel like a smart academic planner rather than a formal school system.
+
+It should help the student answer:
 
 - What classes do I have today?
 - What labs or practicals do I have?
@@ -18,13 +20,25 @@ It should help a student answer:
 
 ## Problem Statement
 
-Students often manage academic information through scattered sources such as WhatsApp, handwritten notes, conversations, posters, and memory. This leads to missed deadlines, forgotten labs, timetable confusion, poor prioritization, and academic disorganization.
+Tertiary students in Roma, Lesotho often manage academic information through scattered sources such as WhatsApp messages, handwritten notes, class conversations, posters, memory, and informal reminders.
 
-CampusFlow addresses this by giving students one reliable place to manage academic life.
+This causes students to:
+
+- Forget tests
+- Miss assignment deadlines
+- Forget labs and practical sessions
+- Lose track of timetable changes
+- Miss important events
+- Fail to prioritize urgent academic work
+- Struggle during busy academic weeks
+- Depend too heavily on WhatsApp messages
+- Feel academically disorganized
+
+CampusFlo addresses this by giving students one place to organize academic life across Android, iOS, and web.
 
 ## Primary User
 
-The only user in the MVP is:
+The only primary user is:
 
 - Student
 
@@ -34,7 +48,8 @@ The student should be able to:
 - Add modules
 - Create a timetable
 - Add labs and practicals
-- Track tests and assignments
+- Track tests
+- Track assignments
 - Track academic tasks
 - Save personal events
 - Write notes
@@ -44,7 +59,11 @@ The student should be able to:
 - Prioritize urgent work
 - View weekly academic summaries
 - Receive AI-powered academic suggestions
-- Use Android, iOS, and web
+- Use the app on Android, iOS, and web
+
+Every feature should answer this question:
+
+Does this help the student manage academic life better?
 
 ## Core Modules
 
@@ -76,10 +95,12 @@ Fields:
 - Programme
 - Year of study
 - Semester
-- Campus/location
+- Campus or location
 - Preferred notification time
 - Preferred study style
 - Theme preference
+
+These can be free-text values in the MVP, but the system should later support normalized institution, faculty, department, programme, and campus data.
 
 ### Modules
 
@@ -96,7 +117,16 @@ Students can add modules with:
 - Credit value, optional
 - Notes
 
-Each module should expose linked timetable entries, tasks, notes, and progress context.
+Each module page should later expose:
+
+- Timetable entries
+- Labs and practicals
+- Upcoming tests
+- Upcoming assignments
+- Upcoming exams
+- Lab reports
+- Notes
+- Progress context
 
 ### Timetable
 
@@ -131,12 +161,14 @@ Timetable requirements:
 - Editing and deletion
 - Clash detection
 
-### Labs
+### Labs and Practicals
 
-Labs are not a standalone major module in MVP. They appear as:
+Labs should not be a completely separate major module in the MVP.
 
-- Timetable entries
-- Academic tasks such as lab reports
+They should exist in two places:
+
+- Timetable entries such as a lab or practical session
+- Academic tasks such as a lab report or practical task
 
 ### Academic Tasks
 
@@ -171,7 +203,7 @@ Fields:
 - Created at
 - Updated at
 
-Statuses:
+Supported statuses:
 
 - Not Started
 - In Progress
@@ -180,18 +212,43 @@ Statuses:
 - Completed
 - Missed
 
-Priorities:
+Priority levels:
 
 - Low
 - Medium
 - High
 - Critical
 
+### Priority Engine
+
+The priority engine should rank work using:
+
+- Due date
+- Task type
+- Student-selected priority
+- Completion status
+- Estimated workload
+- Number of tasks in the same week
+- Overdue status
+
+Suggested MVP scoring baseline:
+
+- Due today: `+100`
+- Due tomorrow: `+80`
+- Due this week: `+50`
+- Overdue: `+120`
+- Priority critical: `+50`
+- Priority high: `+30`
+- Priority medium: `+15`
+- Status not started: `+20`
+- Status in progress: `+10`
+- Estimated workload high: `+20`
+
 ### Events
 
 Students manually add events they care about.
 
-Categories:
+Supported categories:
 
 - Academic
 - Social
@@ -205,19 +262,21 @@ Categories:
 
 ### Notes
 
-Notes support:
+Notes should support:
 
 - Creation
 - Editing
 - Deletion
 - Pinning
 - Search
-- Linking to modules/tasks/events
-- Conversion into task/event/reminder
+- Linking to modules, tasks, or events
+- Conversion into tasks, events, or reminders
 
 ### AI Communicator
 
-The AI communicator should be rule-based in MVP and grounded in real student data. It should support:
+The AI communicator should be rule-based in the MVP and grounded in the student’s actual data.
+
+It should support:
 
 - Deadline reminders
 - Class reminders
@@ -235,7 +294,7 @@ The AI communicator should be rule-based in MVP and grounded in real student dat
 The app should generate a weekly summary on Sunday evening or Monday morning, including:
 
 - Class count
-- Lab/practical count
+- Lab and practical count
 - Upcoming tests
 - Upcoming assignments
 - Upcoming lab reports
@@ -262,59 +321,58 @@ Notification types:
 - AI suggestion
 - Clash warning
 
-### Offline Mode
-
-Core offline support must allow:
-
-- Viewing modules, timetable, tasks, events, and notes
-- Creating notes, tasks, and timetable entries
-- Local reminders
-- Sync queueing for cloud sync on reconnect
-
 ## Non-Functional Requirements
 
-- Usability
-- Mobile-first design
-- Web support
-- Offline support
-- Security
-- Privacy
-- Robustness
-- Performance
-- Maintainability
-- Scalability
-- Accessibility
-- Engagement
+- Usability: easy for students to use daily
+- Mobile-first: Android and iOS should feel natural
+- Web support: students can also use the app in a browser
+- Offline support: core features must work without internet
+- Security: each student must only access their own data
+- Privacy: collect only necessary academic data
+- Robustness: handle errors and poor network conditions well
+- Performance: dashboard should load quickly
+- Maintainability: code should stay modular and clean
+- Scalability: later support institutions, faculties, departments, and programmes
+- Accessibility: text should be readable and UI should stay simple
+- Engagement: the product should feel modern and student-friendly
 
 ## MVP Scope
 
-Included:
+Version 1 must include:
 
-- Registration and login
+- Student registration and login
 - Student profile
 - Modules
 - Timetable
-- Labs/practicals through timetable and tasks
-- Clash detection
+- Labs and practicals as timetable entries
+- Timetable clash detection
 - Academic tasks
-- Events
+- Tests
+- Assignments
+- Lab reports
+- Priority engine
+- Events tracker
 - Notes
 - Basic AI communicator
-- Weekly summary
+- Weekly academic summary
 - Local notifications
 - Offline viewing
 - Offline task and note creation
-- Android, iOS, and web support
-- Basic security and error handling
+- Android support
+- iOS support
+- Web support
+- Basic security
+- Basic robust error handling
 
-Excluded:
+Version 1 excludes:
 
 - Lecturer accounts
 - Admin dashboards
-- Public event approvals
+- Class rep mode
+- Public event approval
 - Institution-wide announcements
-- Payments
+- Payment features
 - Campus map
-- Chat
-- Social feeds
+- Social feed
+- Real-time chat
 - Advanced AI chatbot

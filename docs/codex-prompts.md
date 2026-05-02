@@ -3,11 +3,9 @@
 ## Prompt 1: UI Shell
 
 ```text
-Create an Expo React Native TypeScript app called CampusFlow.
+Create an Expo React Native TypeScript app called CampusFlo.
 
-Tagline: Keep your student life in flow.
-
-The app is a student-only Android, iOS, and web academic companion for tertiary students in Roma, Lesotho.
+CampusFlo is a student-only academic productivity platform for tertiary students in Roma, Lesotho. It must support Android, iOS, and web.
 
 Core requirements:
 - Use Expo React Native with TypeScript.
@@ -78,7 +76,7 @@ Keep the code modular and ready for future backend, offline sync, security, and 
 ## Prompt 2: Security and Robustness Foundation
 
 ```text
-Add a security and robustness foundation to the CampusFlow app.
+Add a security and robustness foundation to the CampusFlo app.
 
 Requirements:
 - Create TypeScript types for StudentProfile, Module, TimetableEntry, AcademicTask, Event, Note, Notification, and AppSettings.
@@ -98,7 +96,7 @@ Requirements:
 ## Prompt 3: Priority and Clash Logic
 
 ```text
-Implement the first business logic utilities for CampusFlow.
+Implement the first business logic utilities for CampusFlo.
 
 Add:
 1. Timetable clash detection
